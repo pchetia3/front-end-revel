@@ -1,0 +1,44 @@
+image: "node:latest"
+
+services:
+- docker:dind
+
+
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  script:
+    - echo "Installing Node Packages..."
+    - npm ci
+    - $(npm bin)/cypress run
+
+build:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  tags: [dind]
+  before_script:
+    - apk update
+    - apk add python
+    - apk add py-pip
+    - pip install awscli --upgrade --user
+    - /root/.local/bin/aws --version
+    - mkdir -p /root/.aws
+    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+  script:
+    - $(/root/.local/bin/aws ecr get-login --no-include-email --region us-east-1 --registry-ids 151322057672)
+    - docker build -t revel-assure .
+    - docker tag revel-assure:latest 151322057672.dkr.ecr.us-east-1.amazonaws.com/revel-assure:latest
+    - docker push 151322057672.dkr.ecr.us-east-1.amazonaws.com/revel-assure:latest
+    
+
+  
+  image: docker:stable
+  script:
+    - docker build -t intern-frontend-qa:latest .

@@ -1,0 +1,76 @@
+{
+  "name": "RFD",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "@revel/core": "https://s3.us-east-2.amazonaws.com/revel-ui-framework/revel-core-1.0.39.tgz#1.0.39",
+    "@revel/data": "https://s3.us-east-2.amazonaws.com/revel-ui-framework/revel-data-1.0.39.tgz#1.0.39",
+    "@revel/icons": "https://s3.us-east-2.amazonaws.com/revel-ui-framework/revel-icons-1.0.39.tgz#1.0.39",
+    "@trendmicro/react-breadcrumbs": "^0.5.5",
+    "@trendmicro/react-sidenav": "^0.4.5",
+    "aws-sdk": "^2.464.0",
+    "axios": "^0.18.1",
+    "ensure-array": "^1.0.0",
+    "firebase": "^6.3.3",
+    "flow-bin": "^0.100.0",
+    "i": "^0.3.6",
+    "material-ui": "^1.0.0-beta.47",
+    "mui-datatables": "^2.6.4",
+    "notistack": "^0.8.6",
+    "npm": "^6.9.0",
+    "react": "^16.8.6",
+    "react-date-range": "^1.0.0-beta",
+    "react-dates": "^20.2.2",
+    "react-dom": "^16.8.6",
+    "react-google-login": "^5.0.4",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "recharts": "^1.6.2",
+    "styled-components": "^4.3.2",
+    "wait-on": "^3.2.0"
+  },
+  "scripts": {
+    "start-server": "npm start",
+    "test": "cypress run",
+    "ci": "start-server-and-test start-server http://localhost:3000 test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "flow": "flow"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "cypress": "^3.3.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "1.18.2",
+    "start-server-and-test": "^1.9.1",
+    "@rebass/grid": "^6.0.0-0",
+    "emotion": "^10.0.6"
+  }
+}

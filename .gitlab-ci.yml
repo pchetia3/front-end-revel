@@ -1,0 +1,13 @@
+stages:
+  - test
+
+variables:
+  IMAGE_CYPRESS_TEST: "cypress/base:10"
+
+test:
+  image: $IMAGE_CYPRESS_TEST
+  stage: test
+  script:
+    - echo "Installing Node Packages..."
+    - npm ci
+    - npm run ci
